@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Kmabb.Controllers;
 
-[SessionCheck]
 public class MessageController : Controller
 {
     private readonly ILogger<MessageController> _logger;
@@ -34,6 +33,8 @@ public class MessageController : Controller
         return View(MessagesModel);
     }
 
+        // -----------------------------Create Message
+
     [HttpPost("messages/create")]
     public IActionResult CreateMessage(Message newMessage)
     {
@@ -49,7 +50,7 @@ public class MessageController : Controller
             newMessage.UserId = (int)UID;
             DB.Messages.Add(newMessage);
             DB.SaveChanges();
-        }
+        } 
         return RedirectToAction("Index");
     }
 

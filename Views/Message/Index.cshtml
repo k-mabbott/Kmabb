@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Message board";
 
     int? UID = Context.Session.GetInt32("UserId");
 
@@ -7,67 +7,66 @@
 
 @model MessageViewModel
 
+<div class="container" >
 
-<nav class="d-flex align-items-center justify-content-between my-2 border-bottom border-secondary">
-    <h2 class="display-5">Networking Wall</h2>
-    <div class="d-flex align-items-center gap-4">
-        <p class="fs-4 my-auto">Welcome, @Context.Session.GetString("UserName")</p>
-        <form asp-action="Logout" asp-controller="User" class="text-right">
-            <button class="btn btn-outline-danger">Logout</button>
-        </form>
-    </div>
-</nav>
-@* // -------------------------------New Message Form *@
-<div class="ps-4">
-    @await Html.PartialAsync("_NewMessage", Model.Message)
+    <nav class="d-flex align-items-center justify-content-between my-2 border-bottom border-secondary">
+        <h2 class="display-5">Message Board</h2>
+        <div class="d-flex align-items-center gap-4">
+            <p class="fs-4 my-auto">Welcome, @(Context.Session.GetString("UserName") != null ? Context.Session.GetString("UserName") : "Guest" )</p>
+        </div>
+    </nav>
+    @* // -------------------------------New Message Form *@
+    <div class="ps-4">
+        @await Html.PartialAsync("_NewMessage", Model.Message)
 
-    @* // -------------------------------All Messages Display *@
-    <div class="d-flex flex-column gap-3 mt-3">
-        @foreach (Message m in Model.Messages)
-        {
-            <div class="ps-4 p-2 pt-4 border border-secondary d-flex flex-column rounded-2 gap-2 shadow-">
-                <div class="d-flex justify-content-between">
-                    <p class="fw-bold">
-                        @m.Creator?.FirstName @m.Creator?.LastName[0] - <small class="text-secondary">@m.CreatedAt.ToString("MMMM dd yyyy, hh:mm tt")</small>
-                    </p>
-                    @if (m.Creator?.UserId == UID)
-                    {
-                        <form asp-action="DeleteMessage" asp-controller="Message" asp-route-mId="@m.MessageId" method="post">
-                            <button class="btn btn-outline-danger btn-sm">Delete message</button>
-                        </form>
-                    }
-                </div>
-                <p class="ps-4">@m.MessageText</p>
-                @* // -------------------------------All Comments Display *@
-
-                @foreach (Comment c in m.Comments)
-                {
-                    <div class="ps-4 p-2 border rounded-2">
-                        <div class="d-flex justify-content-between" >
-                            <p class="fw-bold">
-                                @c.Commentor?.FirstName @c.Commentor?.LastName[0] - <small class="text-secondary">@c.CreatedAt.ToString("MMMM dd yyyy, hh:mm tt")</small>
-                            </p>
-                            @if (c.Commentor?.UserId == UID)
-                            {
-                                <form asp-action="DeleteComment" asp-controller="Comment" asp-route-cId="@c.CommentId" method="post">
-                                    <button class="btn btn-outline-danger btn-sm">Delete comment</button>
-                                </form>
-                            }
-                        </div>
-                        <p class="ps-4">@c.CommentText</p>
+        @* // -------------------------------All Messages Display *@
+        <div class="d-flex flex-column gap-3 mt-3">
+            @foreach (Message m in Model.Messages)
+            {
+                <div class="ps-4 p-2 pt-4 border border-secondary d-flex flex-column rounded-2 gap-2 shadow-">
+                    <div class="d-flex justify-content-between">
+                        <p class="fw-bold">
+                            @m.Creator?.FirstName @m.Creator?.LastName[0] - <small class="text-secondary">@m.CreatedAt.ToString("MMMM dd yyyy, hh:mm tt")</small>
+                        </p>
+                        @if (m.Creator?.UserId == UID)
+                        {
+                            <form asp-action="DeleteMessage" asp-controller="Message" asp-route-mId="@m.MessageId" method="post">
+                                <button class="btn btn-outline-danger btn-sm">Delete message</button>
+                            </form>
+                        }
                     </div>
-                }
-                @{
-                    int mId = m.MessageId;
-                    ViewData["MId"] = mId;
-                }
-                <details>
-                    <summary class="btn btn-sm btn-secondary">Add a comment</summary>
-                <div>
-                    @await Html.PartialAsync("_NewComment", Model.Comment, ViewData )
+                    <p class="ps-4">@m.MessageText</p>
+                    @* // -------------------------------All Comments Display *@
+
+                    @foreach (Comment c in m.Comments)
+                    {
+                        <div class="ps-4 p-2 border rounded-2">
+                            <div class="d-flex justify-content-between" >
+                                <p class="fw-bold">
+                                    @c.Commentor?.FirstName @c.Commentor?.LastName[0] - <small class="text-secondary">@c.CreatedAt.ToString("MMMM dd yyyy, hh:mm tt")</small>
+                                </p>
+                                @if (c.Commentor?.UserId == UID)
+                                {
+                                    <form asp-action="DeleteComment" asp-controller="Comment" asp-route-cId="@c.CommentId" method="post">
+                                        <button class="btn btn-outline-danger btn-sm">Delete comment</button>
+                                    </form>
+                                }
+                            </div>
+                            <p class="ps-4">@c.CommentText</p>
+                        </div>
+                    }
+                    @{
+                        int mId = m.MessageId;
+                        ViewData["MId"] = mId;
+                    }
+                    <details>
+                        <summary class="btn btn-sm btn-secondary">Add a comment</summary>
+                    <div>
+                        @await Html.PartialAsync("_NewComment", Model.Comment, ViewData )
+                    </div>
+                    </details>
                 </div>
-                </details>
-            </div>
-        }
+            }
+        </div>
     </div>
 </div>

@@ -5,12 +5,14 @@
 <div class="text-center">
     <h1 class="display-4 mt-5">Welcome</h1>
     <hr class="mb-5 w-50 mx-auto">
-    <div class="d-flex justify-content-between container" >
-        <section class="card shadow p-1 w-100 m-3" >
-            @await Html.PartialAsync("_Register")
-        </section>
-        <section class="card shadow p-1 w-100 m-3" >
-            @await Html.PartialAsync("_Login")
-        </section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card shadow m-2 col-10 col-sm-6" >
+                @await Html.PartialAsync("_Register")
+            </div>
+            <div class="card shadow m-2 col-10 col-sm" >
+                @await Html.PartialAsync("_Login")
+            </div>
+        </div>
     </div>
 </div>

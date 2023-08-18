@@ -1,0 +1,27 @@
+@{
+    int? UID = Context.Session.GetInt32("UserId");
+}
+
+@model Comment
+
+
+<div class="p-4">
+    <h1 class="fs-6 fw-bold">Post a Comment</h1>
+    <form asp-action="CreateComment" asp-controller="Message" asp-route-mId='@ViewData["MId"]' method="post">
+        <div class="mb-3">
+            <span style="font-weight: 600;" asp-validation-for="CommentText" class="text-danger d-block "></span>
+            <input asp-for="CommentText" class="form-control" placeholder="Post comment here...">
+        </div>
+        <div class="d-flex justify-content-between">
+            <p>
+                @{
+                    if (UID == null)
+                    {
+                        <small>You must be logged in to post a message.</small>
+                    }
+                }
+            </p>
+            <button type="submit" class="btn btn-outline-success w-25" @(UID == null ? "disabled" : "")>Comment</button>
+        </div>
+    </form>
+</div>
