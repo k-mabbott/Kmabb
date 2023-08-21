@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Love+Ya+Like+A+Sister&family=Nunito&family=Plus+Jakarta+Sans&family=Roboto&family=Slackey&display=swap');
 
-
+body {
+  font-family: 'Dosis', sans-serif;
+}
 
 
 html {
@@ -21,3 +24,24 @@ body {
   margin-bottom: 60px;
 }
 
+.responsive {
+  margin: auto;
+  height: auto;
+}
+
+.center-img {
+  overflow: hidden;
+}
+
+.carousel-inner {
+  max-height: 30rem;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.background {
+  height: 500px;
+}
