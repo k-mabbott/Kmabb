@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Dosis', sans-serif;
+  /* background-color: black; */
 }
 
 
@@ -34,6 +35,8 @@ body {
 }
 
 .carousel-inner {
+  background-color: black;
+  min-height: 25rem;
   max-height: 30rem;
   display: flex;
   margin: 0 auto;
@@ -42,6 +45,41 @@ body {
   width: 100%;
 }
 
-.background {
-  height: 500px;
+.carousel-caption {
+  height: fit-content;
+  border-radius: 1rem;
+  padding: 0.5rem;
 }
+
+.background {
+  height: fit-content;
+}
+
+.text-card-l .animate {
+  transform: translateX(-100%);
+  transition: 2s;
+}
+
+.text-card-l.show-animate .animate {
+  transform: translateX(0)
+}
+.text-card-r .animate{
+  transform: translateX(100%);
+  transition: 1s;
+}
+
+.text-card-r.show-animate .animate {
+  transform: translateX(0)
+}
+
+.fade-in {
+  animation-duration: 2s;
+  animation-name: appear;
+}
+
+@keyframes appear {
+  from {opacity: 0;}
+  to { opacity: 1;}
+}
+
+

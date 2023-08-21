@@ -2,63 +2,78 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!-- Banner / Carousel -->
-<div id="banner" class="carousel slide h-50 mt-5 pt-2" data-bs-ride="carousel">
-    <!-- Slide indicator -->
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#banner" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#banner" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#banner" data-bs-slide-to="2"></button>
-        <button type="button" data-bs-target="#banner" data-bs-slide-to="3"></button>
-    </div>
-    <!-- Images -->
-    <div class="carousel-inner">
-        <div class="carousel-item active ">
-            <img id="c-img" src="/images/Guesthouse.jpg" alt="banner-images" class="d-block w-100">
-            <div class="carousel-caption">
-                <h3>Welcome to Kmabb Construction!</h3>
-                <p>Please login and visit the message board for questions</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="/images/master.jpg" alt="banner-images" class="d-block w-100">
-            <div class="carousel-caption">
-                <h3>Custom Work</h3>
-                <p>Including Wood and light Metal work</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="/images/otherMaster.jpg" alt="banner-images" class="d-block w-100">
-            <div class="carousel-caption">
-                <h3>Customer Satisfaction</h3>
-                <p>Our #1 priority</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="/images/living.jpg" alt="banner-images" class="d-block w-100">
-            <div class="carousel-caption">
-                <h3>Quality Craftsmanship</h3>
-                <p>Always improving to provide the best product</p>
-            </div>
-        </div>
-    </div>
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#banner" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#banner" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-</div>
-<div class="bg-black w-100 background p-5">
-    <div class="container d-flex justify-content-between text-center">
-        <div class="col-7 border border-3 rounded-3 bg-dark text-white">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, consequuntur assumenda earum placeat ab natus ratione voluptatem suscipit, quidem optio illum quaerat quae aliquid asperiores sapiente explicabo delectus, temporibus minus.
-        </div>
-        <div class="col-1" ></div>
-        <div class="col-4 border border-3 rounded-3 bg-dark text-white">
-            Hello
-        </div>
-    </div>
+<div class="bg-black">
 
+    <!-- Banner / Carousel -->
+    <div id="banner" class="carousel slide h-50 mt-5 pt-2 bg-black" data-bs-ride="carousel">
+        <!-- Slide indicator -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#banner" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#banner" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#banner" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#banner" data-bs-slide-to="3"></button>
+        </div>
+        <!-- Images -->
+        <div class="carousel-inner fade-in">
+            <div class="carousel-item position-relative active ">
+                <img id="c-img" src="/images/Guesthouse.jpg" alt="banner-images" class="d-block w-100">
+                @* <div class="carousel-caption postion-absolute top-50 end-50 bg-dark bg-opacity-75">
+                    <h3>Welcome!</h3>
+                    <p>Please login and visit the message board for questions</p>
+                </div> *@
+            </div>
+            <div class="carousel-item position-relative">
+                <img src="/images/master.jpg" alt="banner-images" class="d-block w-100">
+                @* <div class="carousel-caption postion-absolute top-50 end-50 bg-dark bg-opacity-75">
+                    <h3>Custom Work</h3>
+                    <p>Including Wood and light Metal work</p>
+                </div> *@
+            </div>
+            <div class="carousel-item position-relative">
+                <img src="/images/otherMaster.jpg" alt="banner-images" class="d-block w-100">
+                @* <div class="carousel-caption postion-absolute top-50 end-50 bg-dark bg-opacity-75">
+                    <h3>Customer Satisfaction</h3>
+                    <p>Our #1 priority</p>
+                </div> *@
+            </div>
+            <div class="carousel-item position-relative">
+                <img src="/images/living.jpg" alt="banner-images" class="d-block w-100">
+                @* <div class="carousel-caption postion-absolute top-50 end-50 bg-dark bg-opacity-75">
+                    <h3>Quality Craftsmanship</h3>
+                    <p>Always improving to provide the best product</p>
+                </div> *@
+            </div>
+        </div>
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#banner" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#banner" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <div class="w-100 text-center fade-in bg-black p-5">
+        <h1 class="display-4 my-5 text-white">Welcome to Kmabb Construction!</h1>
+        <a asp-controller="Message" asp-action="Index"  class="text-white text-decoration-none ">
+            <h4>Please login and visit the message board for questions</h4>
+        </a>
+    </div>
+    <div class="bg-black w-100 background p-5">
+        <div class="container d-flex justify-content-between text-center overflow-hidden">
+            <section class="col-7 text-white text-card-l">
+                <p class="animate bg-dark rounded-3 p-3 h-100" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, consequuntur assumenda earum placeat ab natus ratione voluptatem suscipit, quidem optio illum quaerat quae aliquid asperiores sapiente explicabo delectus, temporibus minus.
+                </p>
+            </section>
+            <div class="col-1" ></div>
+            <section class="col-4 text-white text-card-r">
+                <p class="animate bg-dark rounded-3 p-3 h-100" >
+                    Hello
+                </p>
+            </section>
+        </div>
+        <div style="height: 1000px;">
+
+        </div>
+    </div>
 </div>
