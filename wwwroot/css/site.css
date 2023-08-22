@@ -82,4 +82,32 @@ body {
   to { opacity: 1;}
 }
 
+.image {
+  height: 800px;
+}
 
+.scroll-fade .animate {
+  filter: blur(0);
+  transition: 500ms;
+}
+.scroll-fade.show-animate .animate {
+  filter: blur(5px);
+}
+.zoom .animate {
+  transform: scale(1);
+  transition: 2s;
+  border-radius: 1rem;
+}
+.zoom.show-animate .animate {
+  transform: scale(.5);
+}
+
+.card {
+  transform: scale(1);
+  transition: 1s;
+}
+.card:hover {
+  transform: scale(1.1);
+  transition: 1s;
+  box-shadow: 3px 3px 3px black;
+}

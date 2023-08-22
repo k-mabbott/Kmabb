@@ -12,7 +12,7 @@ window.onscroll = () => {
         let offset = sec.offsetTop;
         let height = sec.offsetHeight;
 
-        if (top <= offset && top < offset + height) {
+        if (top <= offset && top <= offset - height / 2) {
             sec.classList.add('show-animate');
         }
         else {

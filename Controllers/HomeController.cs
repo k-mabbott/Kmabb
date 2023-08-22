@@ -13,7 +13,14 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [HttpGet("/")]
     public IActionResult Index()
+    {
+        return View();
+    }
+
+    [HttpGet("/photos")]
+    public IActionResult PhotoGallery()
     {
         return View();
     }

@@ -17,31 +17,15 @@
         <div class="carousel-inner fade-in">
             <div class="carousel-item position-relative active ">
                 <img id="c-img" src="/images/Guesthouse.jpg" alt="banner-images" class="d-block w-100">
-                @* <div class="carousel-caption postion-absolute top-50 end-50 bg-dark bg-opacity-75">
-                    <h3>Welcome!</h3>
-                    <p>Please login and visit the message board for questions</p>
-                </div> *@
             </div>
             <div class="carousel-item position-relative">
                 <img src="/images/master.jpg" alt="banner-images" class="d-block w-100">
-                @* <div class="carousel-caption postion-absolute top-50 end-50 bg-dark bg-opacity-75">
-                    <h3>Custom Work</h3>
-                    <p>Including Wood and light Metal work</p>
-                </div> *@
             </div>
             <div class="carousel-item position-relative">
                 <img src="/images/otherMaster.jpg" alt="banner-images" class="d-block w-100">
-                @* <div class="carousel-caption postion-absolute top-50 end-50 bg-dark bg-opacity-75">
-                    <h3>Customer Satisfaction</h3>
-                    <p>Our #1 priority</p>
-                </div> *@
             </div>
             <div class="carousel-item position-relative">
                 <img src="/images/living.jpg" alt="banner-images" class="d-block w-100">
-                @* <div class="carousel-caption postion-absolute top-50 end-50 bg-dark bg-opacity-75">
-                    <h3>Quality Craftsmanship</h3>
-                    <p>Always improving to provide the best product</p>
-                </div> *@
             </div>
         </div>
         <!-- Controls -->
@@ -54,26 +38,45 @@
     </div>
     <div class="w-100 text-center fade-in bg-black p-5">
         <h1 class="display-4 my-5 text-white">Welcome to Kmabb Construction!</h1>
-        <a asp-controller="Message" asp-action="Index"  class="text-white text-decoration-none ">
+        <a asp-controller="Message" asp-action="Index" class="text-white text-decoration-none ">
             <h4>Please login and visit the message board for questions</h4>
         </a>
     </div>
     <div class="bg-black w-100 background p-5">
-        <div class="container d-flex justify-content-between text-center overflow-hidden">
-            <section class="col-7 text-white text-card-l">
-                <p class="animate bg-dark rounded-3 p-3 h-100" >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, consequuntur assumenda earum placeat ab natus ratione voluptatem suscipit, quidem optio illum quaerat quae aliquid asperiores sapiente explicabo delectus, temporibus minus.
-                </p>
+        <div class="container mx-auto d-flex justify-content-between text-center overflow-hidden row gy-3">
+            <section class="d-block col-12 col-sm-5 text-white text-card-l">
+                <h5 class="animate bg-dark rounded-3 p-3 h-100">
+                    Kmabb Construction is a small general contracting business established in 2020. Owned and operated
+                    by Kyle in Kitsap County Washington
+                </h5>
             </section>
-            <div class="col-1" ></div>
-            <section class="col-4 text-white text-card-r">
-                <p class="animate bg-dark rounded-3 p-3 h-100" >
-                    Hello
-                </p>
+            <div class="col-1"></div>
+            <section class="d-block col-12 col-sm-6 text-white text-card-r">
+                <div class="animate bg-dark rounded-3 p-3 h-100">
+                    <h5 class="animate">Scope of work includes</h5>
+                    <ul class="animate text-start">
+                        <li>Custom woodworking</li>
+                        <li>Custom metalworking</li>
+                        <li>Cabinetry</li>
+                        <li>Framing</li>
+                        <li>Flooring</li>
+                        <li>Tiling</li>
+                        <li>Much more..</li>
+                    </ul>
+                </div>
             </section>
         </div>
-        <div style="height: 1000px;">
+    </div>
+        <section class="bg-black scroll-fade zoom pt-5 position-relative">
+            <img src="./images/bridge.jpg" alt="bridge" class="w-100 mx-auto animate" width="100">
+            <section class="d-block col-12 text-white zoom container mx-auto text-center overflow-hidden position-absolute top-50 opacity-75">
+                <h1 class="animate bg-dark p-3 h-100 m-5">
+                    Residential and Light Commercial Work
+                </h1>
+            </section>
+        </section>
+    <h1 class="text-white text-center w-100 p-5">Check out the Gallery <a asp-controller="Home" asp-action="PhotoGallery">Here!</a></h1>
+    <div style="height: 115px;" class="w-100">
 
-        </div>
     </div>
 </div>
