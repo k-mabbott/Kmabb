@@ -12,34 +12,37 @@ window.onscroll = () => {
         let top = window.scrollY;
         let offset = sec.offsetTop;
         let height = sec.offsetHeight;
-
+        
         if (top <= offset && top <= offset - height / 2) {
             sec.classList.add('show-animate');
         }
         else {
             sec.classList.remove('show-animate');
         }
+        
+        
     })
+    scrollFunction()
 }
 
 // ----------------------------------- Gallery Scroll to top
 
-// let topBtn = document.getElementById("topBtn");
+let topBtn = document.getElementById("topBtn");
 
-// window.onscroll = function () { scrollFunction() };
+// window.onscroll = () => { scrollFunction() };
 
-// function scrollFunction() {
-//     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//         topBtn.style.display = "block";
-//     } else {
-//         topBtn.style.display = "none";
-//     }
-// }
+function scrollFunction() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+}
 
-// function topFunction() {
-//     document.body.scrollTop = 0;
-//     document.documentElement.scrollTop = 0;
-// }
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 
 // ----------------------------------- Gallery Popup Modal
 
