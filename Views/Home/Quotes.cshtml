@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Quotes";
+}
+@model QuoteViewModel
+
+<div>
+
+    <div style="height: 50px;"></div>
+
+    <p>View Your Quotes</p>
+    @foreach (Quote q in Model.AllQuotes)
+    {
+        <div class="border border-secondary p-3 m-3">
+            <h3 class="border-bottom">@q.Name</h3 class="border-bottom">
+            <div class="d-flex justify-content-between">
+                <p>Email: @q.Email</p>
+                <p>Phone: @q.Phone</p>
+            </div>
+            <p>City / Town: @q.City</p>
+            <p>Message: @q.Message</p>
+
+            @{
+                int qId = q.QuoteId;
+                ViewData["QId"] = qId;
+            }
+
+            @await Html.PartialAsync("_AdminQuoteForm", q, ViewData )
+        </div>
+    }
+    <div style="height: 100px;"></div>
+</div>

@@ -14,10 +14,10 @@ public class MyContext : DbContext
     // The name of our table in our database will be based on the name we provide here
     // This is where we provide a plural version of our model to fit table naming standards
     
-    
     public DbSet<User> Users { get; set; }
     public DbSet<Comment> Comments { get; set; }
     public DbSet<Message> Messages { get; set; }
+    public DbSet<Quote> Quotes { get; set; }
 
 }
 

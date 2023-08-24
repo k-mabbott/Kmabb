@@ -1,0 +1,21 @@
+@{
+    int? UID = Context.Session.GetInt32("UserId");
+}
+
+@model Quote
+
+<form asp-action="UpdateQuote" asp-controller="Home" asp-route-qId='@ViewData["QId"]' method="post">
+        <label asp-for="StartDate"></label>
+        <input asp-for="StartDate" class="mb-3" type="datetime-local">
+        <div class="d-flex justify-content-around">
+            <p>
+                <label asp-for="Replied" >Replied: </label>
+                <input asp-for="Replied" type="checkbox">
+            </p>
+            <p>
+                <label asp-for="Completed" >Completed: </label>
+                <input asp-for="Completed" type="checkbox">
+            </p>
+        </div>
+        <button class="btn btn-secondary" >Save Changes</button>
+</form>
