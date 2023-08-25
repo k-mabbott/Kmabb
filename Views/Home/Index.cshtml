@@ -108,25 +108,29 @@
     </div>
     <h1 class="text-center text-white border-bottom w-75 mx-auto pb-2 mb-3" >Request a quote</h3>
     <form asp-action="CreateQuote" asp-controller="Home" class="text-white text-center" method="post">
-        <div class="mb-3">
-            <label asp-for="Name"></label>
-            <span asp-validation-for="Name" class="text-danger d-block"></span>
-            <input asp-for="Name" class="form-control w-75 mx-auto bg-dark text-white" placeholder="Your Name" >
+        <div class="row">
+            <div class="mb-3 col-12 col-sm-6">
+                <label asp-for="Name"></label>
+                <span asp-validation-for="Name" class="text-danger d-block"></span>
+                <input asp-for="Name" class="form-control w-75 mx-auto bg-dark text-white" placeholder="Your Name" >
+            </div>
+            <div class="mb-3 col-12 col-sm-6">
+                <label asp-for="Email"></label>
+                <span asp-validation-for="Email" class="text-danger d-block"></span>
+                <input asp-for="Email" class="form-control w-75 mx-auto bg-dark text-white" placeholder="Your Email" >
+            </div>
         </div>
-        <div class="mb-3">
-            <label asp-for="Email"></label>
-            <span asp-validation-for="Email" class="text-danger d-block"></span>
-            <input asp-for="Email" class="form-control w-75 mx-auto bg-dark text-white" placeholder="Your Email" >
-        </div>
-        <div class="mb-3">
-            <label asp-for="Phone"></label>
-            <span asp-validation-for="Phone" class="text-danger d-block"></span>
-            <input asp-for="Phone" type="tel" class="form-control w-75 mx-auto bg-dark text-white" placeholder="Your Phone Number" >
-        </div>
-        <div class="mb-3">
-            <label asp-for="City"></label>
-            <span asp-validation-for="City" class="text-danger d-block"></span>
-            <input asp-for="City" class="form-control w-75 mx-auto bg-dark text-white" placeholder="City or Town you are located in" >
+        <div class="row">
+            <div class="mb-3 col-12 col-sm-6">
+                <label asp-for="Phone"></label>
+                <span asp-validation-for="Phone" class="text-danger d-block"></span>
+                <input asp-for="Phone" type="tel" class="form-control w-75 mx-auto bg-dark text-white" placeholder="Your Phone Number" >
+            </div>
+            <div class="mb-3 col-12 col-sm-6">
+                <label asp-for="City"></label>
+                <span asp-validation-for="City" class="text-danger d-block"></span>
+                <input asp-for="City" class="form-control w-75 mx-auto bg-dark text-white" placeholder="City or Town you are located in" >
+            </div>
         </div>
         <div class="mb-3">
             <label asp-for="Message"></label>
