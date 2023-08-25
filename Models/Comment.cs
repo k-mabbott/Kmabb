@@ -12,6 +12,7 @@ public class Comment
     [Key]
     public int CommentId { get; set; }
 
+    [NoBadWords]
     [Required]
     [Display(Name ="Post a comment")]
     [MaxLength(255)]

@@ -4,19 +4,25 @@
 @model QuoteViewModel
 
 <div>
+<button onclick="topFunction()" id="topBtn" style="display: none;" title="Go to top"><i class="arrow up m-auto"></i></button>
 
     <div style="height: 50px;"></div>
-
-    <p>View Your Quotes</p>
-    @foreach (Quote q in Model.AllQuotes)
+    <ul class="nav justify-content-around" >
+        <li class="nav-item fs-6" ><a href="#replied">Replied Quotes</a></li>
+        <li class="nav-item fs-6" ><a href="#completed">Completed Quotes</a></li>
+    </ul>
+    <p class="text-center fs-4 border-bottom border-2 w-75 mx-auto" id="new" >All New Quotes</p>
+    @foreach (Quote q in Model.AllQuotes.Where(q => q.Replied != true && q.Completed != true))
     {
-        <div class="border border-secondary p-3 m-3">
-            <h3 class="border-bottom">@q.Name</h3 class="border-bottom">
-            <div class="d-flex justify-content-between">
+        <details class="border border-secondary p-3 m-3">
+            <summary>
+                    <h3 class="border-bottom">@q.Name</h3 class="border-bottom">
+                    <p class="align-self-end float-end my-auto" >Phone: @q.Phone</p>
+            </summary>
+            <div class="d-flex justify-content-between pt-4">
                 <p>Email: @q.Email</p>
-                <p>Phone: @q.Phone</p>
+                <p>City / Town: @q.City</p>
             </div>
-            <p>City / Town: @q.City</p>
             <p>Message: @q.Message</p>
 
             @{
@@ -25,7 +31,51 @@
             }
 
             @await Html.PartialAsync("_AdminQuoteForm", q, ViewData )
-        </div>
+        </details>
+    }
+    <p class="text-center fs-4 border-bottom border-2 w-75 mx-auto" id="replied" >Replied Quotes</p>
+    @foreach (Quote q in Model.AllQuotes.Where(q => q.Replied == true && q.Completed != true))
+    {
+        <details class="border border-secondary p-3 m-3">
+            <summary>
+                    <h3 class="border-bottom">@q.Name</h3 class="border-bottom">
+                    <p class="align-self-end float-end my-auto" >Phone: @q.Phone</p>
+            </summary>
+            <div class="d-flex justify-content-between pt-4">
+                <p><span class="fw-bold" >Email:</span>  @q.Email</p>
+                <p>City / Town: @q.City</p>
+            </div>
+            <p>Message: @q.Message</p>
+
+            @{
+                int qId = q.QuoteId;
+                ViewData["QId"] = qId;
+            }
+
+            @await Html.PartialAsync("_AdminQuoteForm", q, ViewData )
+        </details>
+    }
+    <p class="text-center fs-4 border-bottom border-2 w-75 mx-auto" id="completed" >Completed Quotes</p>
+    @foreach (Quote q in Model.AllQuotes.Where(q => q.Completed == true))
+    {
+        <details class="border border-secondary p-3 m-3">
+            <summary>
+                    <h3 class="border-bottom text-decoration-line-through">@q.Name</h3 class="border-bottom">
+                    <p class="align-self-end float-end my-auto" >Phone: @q.Phone</p>
+            </summary>
+            <div class="d-flex justify-content-between pt-4">
+                <p>Email: @q.Email</p>
+                <p>City / Town: @q.City</p>
+            </div>
+            <p>Message: @q.Message</p>
+
+            @{
+                int qId = q.QuoteId;
+                ViewData["QId"] = qId;
+            }
+
+            @await Html.PartialAsync("_AdminQuoteForm", q, ViewData )
+        </details>
     }
     <div style="height: 100px;"></div>
 </div>

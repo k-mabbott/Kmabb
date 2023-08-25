@@ -12,6 +12,7 @@ public class Message
     [Key]
     public int MessageId { get; set; }
 
+    [NoBadWords]
     [Required]
     [Display(Name ="Post a message")]
     [MaxLength(255)]

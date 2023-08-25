@@ -17,7 +17,7 @@ public class HomeController : Controller
         _logger = logger;
         DB = context;
     }
-
+// -----------------------------------Home Page
     [HttpGet("/")]
     public IActionResult Index()
     {
@@ -29,7 +29,7 @@ public class HomeController : Controller
     {
         return View();
     }
-
+// ----------------------------------- View Quotes
     [HttpGet("/quotes")]
     public IActionResult Quotes()
     {
@@ -37,7 +37,7 @@ public class HomeController : Controller
         QuoteModel.AllQuotes = DB.Quotes.OrderByDescending(q => q.CreatedAt).ToList();
         return View(QuoteModel);
     }
-
+// ----------------------------------- Create Quote / POST
     [HttpPost("/create/quote")]
     public IActionResult CreateQuote(Quote newQuote)
     {
@@ -51,7 +51,7 @@ public class HomeController : Controller
 
         return RedirectToAction("Index");
     }
-
+// ----------------------------------- Update Quote / POST
     [HttpPost("/update/{qID}/quote/")]
     public IActionResult UpdateQuote(Quote editQuote, int qID)
     {
@@ -72,11 +72,11 @@ public class HomeController : Controller
         return RedirectToAction("Quotes");
     }
 
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+// ----------------------------------- Currently not used
+    // public IActionResult Privacy()
+    // {
+    //     return View();
+    // }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
