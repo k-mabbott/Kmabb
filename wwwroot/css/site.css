@@ -25,6 +25,10 @@ body {
   margin-bottom: 60px;
 }
 
+#navbar {
+  opacity: 0.80;
+}
+
 /* ------------------------ Carousel ----------- */
 
 .responsive {
