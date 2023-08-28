@@ -30,6 +30,7 @@ public class HomeController : Controller
         return View();
     }
 // ----------------------------------- View Quotes
+    [SessionCheck]
     [HttpGet("/quotes")]
     public IActionResult Quotes()
     {
