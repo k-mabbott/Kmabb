@@ -36,12 +36,12 @@ public class Quote
     [MaxLength(1000)]
     public string Message { get; set; }
 
-    public bool Replied { get; set; }
+    public bool Replied { get; set; } = false;
 
-    public bool Completed { get; set; }
+    public bool Completed { get; set; } = false;
 
     [Display(Name="Start Date and Time:")]
-    public DateTime StartDate { get; set; }
+    public DateTime StartDate { get; set; } = DateTime.MinValue;
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public DateTime UpdatedAt { get; set; } = DateTime.Now;
